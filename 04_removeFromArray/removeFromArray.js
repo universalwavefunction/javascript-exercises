@@ -1,16 +1,15 @@
-const removeFromArray = function(array, itemToRemove) {
-  for (var i = array.length - 1; i >=0; i--) {
-    for (j in itemToRemove) {
-      console.log(itemToRemove[j]);
-      if (array[i] === itemToRemove[j]) {
-        console.log(i + j)
-        array.splice(i,1);
+const removeFromArray = function(array, ...itemsToRemove) {
+  for (let i = 0; i < array.length; i++) {
+    for (j in itemsToRemove) {
+      if (array[i] === itemsToRemove[j]) {
+        array.splice(i, 1);
+        i--;
       }
     }
   }
   return array;
 }
 
-console.log(removeFromArray([1, 2, 3, 4], 3))
+//console.log(removeFromArray([1, 2, 3, 4], 3, 2))
 // Do not edit below this line
-//module.exports = removeFromArray;
+module.exports = removeFromArray;
